@@ -45,9 +45,12 @@ public class Fibonacci implements Iterable<Integer> {
          * последовательности существует. В обратном случае
          * {@code false}.
          */
+        private int a = 0;
+        
+        private 
         @Override
         public boolean hasNext() {
-            throw new UnsupportedOperationException("Not implemented yet!");
+             return a < fibonacci.size();
         }
 
         /**
@@ -58,7 +61,7 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public Integer next() {
-            throw new UnsupportedOperationException("Not implemented yet!");
+            return fib.get(a++);
         }
     }
 
