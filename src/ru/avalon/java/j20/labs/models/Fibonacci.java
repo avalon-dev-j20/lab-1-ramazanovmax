@@ -1,6 +1,8 @@
 package ru.avalon.java.j20.labs.models;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Модель получения последовательности чисел Фибоначчи.
@@ -18,11 +20,22 @@ import java.util.Iterator;
  */
 public class Fibonacci implements Iterable<Integer> {
 
+    private List<Integer> fibonacci = new ArrayList<>();
+
+    public Fibonacci(int count){
+        fibonacci.add(0);
+        fibonacci.add(1);
+
+        for(int i = 1; i < count-1; i++){
+            fibonacci.add(fibonacci.get(i) + fibonacci.get(i-1));
+        };
+
+    }
     /**
      * Итератор, выполняющий обход последовательности
      * чисел Фибоначчи.
      */
-    private static class FibonacciIterator implements Iterator<Integer> {
+    private class FibonacciIterator implements Iterator<Integer> {
 
         /**
          * Определяет, есть ли следующее значение
@@ -32,9 +45,10 @@ public class Fibonacci implements Iterable<Integer> {
          * последовательности существует. В обратном случае
          * {@code false}.
          */
+        private int a = 0;
         @Override
         public boolean hasNext() {
-            throw new UnsupportedOperationException("Not implemented yet!");
+             return a < fibonacci.size();
         }
 
         /**
@@ -45,8 +59,12 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public Integer next() {
-            throw new UnsupportedOperationException("Not implemented yet!");
+            if(hasNext()){
+                return fibonacci.get(a++);
+            }
+            return 0;
         }
+
     }
 
     /**
@@ -55,8 +73,19 @@ public class Fibonacci implements Iterable<Integer> {
      *
      * @return итератор последовательности чисел Фибоначчи
      */
-    @Override
     public Iterator<Integer> iterator() {
         return new FibonacciIterator();
+    }
+
+    public int getSumm(){
+        int summ = 0;
+        Iterator iterator =  this.iterator();
+
+        for(int i = 0; i<20; i++){
+            if(iterator.hasNext()){
+                summ += (int) iterator.next();
+            }
+        }
+        return summ;
     }
 }
