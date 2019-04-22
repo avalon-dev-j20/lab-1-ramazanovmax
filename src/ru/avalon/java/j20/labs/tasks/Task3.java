@@ -41,6 +41,11 @@ public class Task3 implements Task {
         //while (fib.iterator().hasNext()){
         //    summ += fib.iterator().next();
         //}
+        System.out.println(fib.ilterator().getA());
+        System.out.println(fib.ilterator().getA());
+        System.out.println(fib.iterator().next());
+        System.out.println(fib.iterator().next());
+        System.out.println(fib.iterator().next());
         System.out.println(summ);
     }
 }

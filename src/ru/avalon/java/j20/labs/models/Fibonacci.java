@@ -45,11 +45,11 @@ public class Fibonacci implements Iterable<Integer> {
          * последовательности существует. В обратном случае
          * {@code false}.
          */
-        private int cursor = 0;
+        private int a = 0;
         
         @Override
         public boolean hasNext() {
-             return cursor < fibonacci.size();
+             return a < fibonacci.size();
         }
 
         /**
@@ -60,8 +60,12 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public Integer next() {
-            cursor += 15;
-            return fibonacci.get(cursor++);
+            return fibonacci.get(a++);
+        }
+
+        public int getA() {
+            a++;
+            return a;
         }
     }
 
@@ -71,8 +75,7 @@ public class Fibonacci implements Iterable<Integer> {
      *
      * @return итератор последовательности чисел Фибоначчи
      */
-    @Override
-    public Iterator<Integer> iterator() {
+    public Iterator<Integer> ilterator() {
         return new FibonacciIterator();
     }
 }
