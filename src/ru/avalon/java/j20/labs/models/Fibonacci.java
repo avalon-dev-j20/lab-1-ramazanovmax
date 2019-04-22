@@ -46,7 +46,6 @@ public class Fibonacci implements Iterable<Integer> {
          * {@code false}.
          */
         private int a = 0;
-        
         @Override
         public boolean hasNext() {
              return a < fibonacci.size();
@@ -60,13 +59,12 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public Integer next() {
-            return fibonacci.get(a++);
+            if(hasNext()){
+                return fibonacci.get(a++);
+            }
+            return 0;
         }
 
-        public int getA() {
-            a++;
-            return a;
-        }
     }
 
     /**
@@ -75,7 +73,19 @@ public class Fibonacci implements Iterable<Integer> {
      *
      * @return итератор последовательности чисел Фибоначчи
      */
-    public Iterator<Integer> ilterator() {
+    public Iterator<Integer> iterator() {
         return new FibonacciIterator();
+    }
+
+    public int getSumm(){
+        int summ = 0;
+        Iterator iterator =  this.iterator();
+
+        for(int i = 0; i<20; i++){
+            if(iterator.hasNext()){
+                summ += (int) iterator.next();
+            }
+        }
+        return summ;
     }
 }
