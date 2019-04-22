@@ -1,6 +1,7 @@
 package ru.avalon.java.j20.labs.tasks;
 
 import ru.avalon.java.j20.labs.Task;
+import ru.avalon.java.j20.labs.models.Fibonacci;
 
 import java.util.Iterator;
 
@@ -34,5 +35,12 @@ public class Task3 implements Task {
          * 4. С использованием отладчика проверьте корректность
          *    выполнения задания.
          */
+
+        Fibonacci fib = new Fibonacci(20);
+        int summ = 0;
+        //while (fib.iterator().hasNext()){
+        //    summ += fib.iterator().next();
+        //}
+        System.out.println(summ);
     }
 }
