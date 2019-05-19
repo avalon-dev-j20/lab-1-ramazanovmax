@@ -38,7 +38,7 @@ public final class Numbers {
      * @param b второе значение
      * @return большее из двух значений
      */
-    public static <T extends Number & Comparable> T max(T a, T b) {
+    public static <T extends Number & Comparable<T>> T max(T a, T b) {
         return a.compareTo(b) > 0 ? a : b;
     }
 
@@ -48,7 +48,7 @@ public final class Numbers {
      * @param values массив значений
      * @return максимальное значение массива
      */
-    public static <T extends Number & Comparable> T max(T[] values) {
+    public static <T extends Number & Comparable<T>> T max(T[] values) {
         T result = values[0];
         for (int i = 1; i < values.length; i++) {
             result = max(result, values[i]);
@@ -63,7 +63,7 @@ public final class Numbers {
      * @param b второе значение
      * @return меньшее из дух значений
      */
-    public static <T extends Number & Comparable> T min(T a, T b) {
+    public static <T extends Number & Comparable<T>> T min(T a, T b) {
         return a.compareTo(b) < 0 ? a : b;
     }
 
@@ -73,7 +73,7 @@ public final class Numbers {
      * @param values массив значений
      * @return минимальное значение массива
      */
-    public static <T extends Number & Comparable> T min(T[] values) {
+    public static <T extends Number & Comparable<T>> T min(T[] values) {
         T result = values[0];
         for (int i = 1; i < values.length; i++) {
             result = min(result, values[i]);

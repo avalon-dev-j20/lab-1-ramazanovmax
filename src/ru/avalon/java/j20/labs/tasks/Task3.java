@@ -37,14 +37,8 @@ public class Task3 implements Task {
          */
 
         Fibonacci fib = new Fibonacci(20);
-        Iterator<Integer> fibIterator = fib.iterator();
         int summ = 0;
-        while (fibIterator.hasNext()){
-            int s = fibIterator.next();
-            System.out.println(s);
-            summ += s;
-        }
-        //System.out.println(summ); //тут сумма всех значений
-        //System.out.println(fib.getSumm());  //тут сумма первых 20 значений, любого количества чисел Фибораччи
+        for(int s : fib) {summ += s;}
+
     }
 }

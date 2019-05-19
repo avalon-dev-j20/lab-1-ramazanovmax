@@ -3,6 +3,7 @@ package ru.avalon.java.j20.labs.models;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * Модель получения последовательности чисел Фибоначчи.
@@ -23,6 +24,8 @@ public class Fibonacci implements Iterable<Integer> {
     private List<Integer> fibonacci = new ArrayList<>();
 
     public Fibonacci(int count){
+        if(count < 2) throw new IllegalArgumentException("count must be >= 2");
+
         fibonacci.add(0);
         fibonacci.add(1);
 
@@ -59,10 +62,10 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public Integer next() {
-            if(hasNext()){
-                return fibonacci.get(a++);
-            }
-            return 0;
+            if (!hasNext()) throw new NoSuchElementException();
+
+            return fibonacci.get(a++);
+
         }
 
     }
